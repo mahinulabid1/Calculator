@@ -1,12 +1,17 @@
-
 body{
     font-family: 'Source Sans Pro', sans-serif;
     background: #f1c40f;
+    min-height: 100vh;
+}
+
+body{
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .calculator-container{
     width: 400px;
-    background: rgba(245, 245, 245, 0.644);
+    /* background: rgba(245, 245, 245, 0.644); */
     min-height: 700px;
     /*centering*/
     position: absolute;
@@ -21,13 +26,57 @@ body{
 
 
 .display-section{
-    background: #f5c7106e;
-    height: 100px;
+    background: #ffa600ee;
+    height: 130px; 
+}
+
+.button-container, .display-section{
     width: 90%;
-    margin: 20px auto;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
+    margin: 0 auto;
+}
+
+.button-container{
+    flex-wrap: wrap;
+}
+
+.display-section{
+    font-size: 26px;
+}
+
+.input{
+    height: 80px;
+    line-height: 80px;
+    font-size: 30px;
+    width:24.5%;
+    background: rgba(41, 41, 41, 0.448);
+    cursor: pointer;
+    margin: 0.8px;
+    transition: opacity 400ms;
+    -webkit-transition: opacity 400ms;
+    -moz-transition: opacity 400ms;
+    -ms-transition: opacity 400ms;
+    -o-transition: opacity 400ms;
+}
+
+.input:hover{
+    opacity: 0.7;
+}
+
+/* SPECIFIC BUTTON */
+.button-reset, .buton-turnOff, .button-history{
+    font-size: 20px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.59);
+}
+.button-reset{
+    background: rgba(255, 0, 13, 0.384);
+}
+.buton-turnOff{
+    background: rgba(255, 0, 0, 0.685);
+}
+.button-history{
+    background:rgba(2, 243, 94, 0.344)
+}
+.equal-sign{
+    width: 49.4%;
 }
