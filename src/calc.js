@@ -1,11 +1,13 @@
 // WHAT TO MAINTAIN
 // 1) ABSTRACTION
 // 2) USE OF CLASS
-
+// DISPLAY REST CALCULATIONS HISTORY
 
 // DOM SELECTOR
 const NumberBtn = document.querySelectorAll(".number-input");
 const Display = document.querySelector(".display-section");
+const resetBtn = document.querySelector(".button-reset");
+const OperatorBtn = document.querySelectorAll("")
 
 
 
@@ -27,16 +29,30 @@ class DisplayNumber {
             });
         }
     }
+    callAll = () => {
+        this.displayNumber();
+    }
 }
 
 
-class Reset{
-    constructor(DisplayReset){
+class Reset {
+    constructor(DisplayReset) {
         this.displayReset = DisplayReset;
     }
 
-    resetDisplay = ()=>{
+    resetDisplay = () => {
         this.displayReset.textContent = 0;
+    }
+
+    resetArray = () => {
+        inputAr = [];
+    }
+
+    callAll = () => {
+        resetBtn.addEventListener("click", () => {
+            this.resetDisplay();
+            this.resetArray();
+        });
     }
 }
 
@@ -68,7 +84,8 @@ class Reset{
 
 
 
-let DisplayNumber = new DisplayNumber(inputAr, NumberBtn);
-DisplayNumber.displayNumber();
+let testDisplay = new DisplayNumber(inputAr, NumberBtn);
+testDisplay.callAll();
 
-let testReset = new Reset();
+let testReset = new Reset(Display);
+testReset.callAll();
