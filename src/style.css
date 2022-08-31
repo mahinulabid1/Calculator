@@ -1,6 +1,6 @@
 body{
     font-family: 'Source Sans Pro', sans-serif;
-    background: #f1c40f;
+    background: #B4CF66;
     min-height: 100vh;
 }
 
@@ -26,8 +26,9 @@ body{
 
 
 .display-section{
-    background: #ffa600ee;
+    background:#dbeca549;
     height: 130px; 
+    color: white;
 }
 
 .button-container, .display-section{
@@ -45,6 +46,7 @@ body{
 
 .input{
     height: 80px;
+    color:white;
     line-height: 80px;
     font-size: 30px;
     width:24.5%;
@@ -66,17 +68,22 @@ body{
 .button-reset, .buton-turnOff, .button-history{
     font-size: 20px;
     font-weight: 600;
-    color: rgba(0, 0, 0, 0.59);
+    /* color: rgba(0, 0, 0, 0.59); */
 }
 .button-reset{
-    background: rgba(255, 0, 13, 0.384);
+    background: #FFEC5C;
 }
 .buton-turnOff{
-    background: rgba(255, 0, 0, 0.685);
+    background: #FF5A33;
+    color:white;
 }
 .button-history{
-    background:rgba(2, 243, 94, 0.344)
+    background:#44803F;
 }
 .equal-sign{
+    background: #146152;
+    color: white;
+}
+.bottom-row{
     width: 49.4%;
 }
