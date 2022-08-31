@@ -110,7 +110,7 @@ class Processing {
             if(inputAr.length == 0){
                 return; //error handling
             }
-            
+
             let number = inputAr.join('');
             number = parseFloat(number);
             NumberAr.push(number);
@@ -138,10 +138,11 @@ class Processing {
                 // do something
                 this.display.textContent = NumberAr[0];
             } else if (NumberAr.length == 0) {
-                this.display.textContent = "no inputnumber";
+                this.display.textContent = "0";
             }
 
-
+            // computation
+            // for loop to go throuh an array
 
         });
     }
