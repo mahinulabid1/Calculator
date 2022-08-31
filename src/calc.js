@@ -74,7 +74,7 @@ class Processing{
         
     }
 
-    ProcessingNumber(){
+    ProcessingNumber(){ //name should be storing information
         for(let i =0; i < this.opBtn.length; i++){
             let btn = this.opBtn[i];
             btn.addEventListener('click', (event)=>{
@@ -94,8 +94,8 @@ class Processing{
                 else if(event.target.classList.contains("divide-sign")){
                     opSignAr.push("/");
                 }
-                console.info(NumberAr);
-                console.info(opSignAr);
+                // console.info(NumberAr);
+                // console.info(opSignAr);
                 let resetAr = new Reset(Display);
                 resetAr.resetDisplay();
                 resetAr.resetInputArray();
@@ -109,9 +109,18 @@ class Processing{
 
     EqualProcess=()=>{
         equalSign.addEventListener("click", ()=>{
-            console.info(`Number Array ${NumberAr}`);
-            console.info(`SignArray ${opSignAr}`);
+            let number = inputAr.join('');
+            number= parseFloat(number);
+            NumberAr.push(number);
+
+            console.info(NumberAr);
+            console.info(opSignAr);
         });
+    }
+
+
+    Computation=()=>{
+        
     }
 
    
@@ -151,3 +160,4 @@ testDisplay.callAll();
 
 let testProcessing = new Processing(OperatorBtn);
 testProcessing.ProcessingNumber();
+testProcessing.EqualProcess();
