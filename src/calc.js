@@ -58,6 +58,11 @@ class Reset {
         inputAr = [];
     }
 
+    resetStorage = () => {
+        opSignAr = [];
+        NumberAr = [];
+    }
+
     callAll = () => {
         console.info("reset is working");
         resetBtn.addEventListener("click", () => {
@@ -72,6 +77,8 @@ class Processing {
     constructor(opBtn, display) {
         this.opBtn = opBtn;
         this.display = display;
+        this.onComputationState = false;
+        this.result = null;
     }
 
     ProcessingNumber() { //name should be storing information
@@ -107,7 +114,7 @@ class Processing {
 
     EqualProcess = () => {
         equalSign.addEventListener("click", () => {
-            if(inputAr.length == 0){
+            if (inputAr.length == 0) {
                 return; //error handling
             }
 
@@ -118,31 +125,81 @@ class Processing {
     }
 
 
+    Reset = new Reset();
+
     Computation = () => {
-        let junk = () => {
-            if (opSignAr[0] == "+") {
-                console.info("this is a plus operation");
-                // let result = 
-            } else if (opSignAr[0] == "-") {
-                console.info("this is a minus operation");
-            } else if (opSignAr[0] == "*") {
-                console.info("this is a into operation");
-            } else if (opSignAr[0] == "/") {
-                console.info("this is a divide operation");
-            }
-        }
+        // let junk = () => {
+        //     if (opSignAr[0] == "+") {
+        //         console.info("this is a plus operation");
+        //         // let result = 
+        //     } else if (opSignAr[0] == "-") {
+        //         console.info("this is a minus operation");
+        //     } else if (opSignAr[0] == "*") {
+        //         console.info("this is a into operation");
+        //     } else if (opSignAr[0] == "/") {
+        //         console.info("this is a divide operation");
+        //     }
+        // }
+
 
         equalSign.addEventListener("click", () => {
             //VALIDATION
             if (NumberAr.length == 1) {
-                // do something
                 this.display.textContent = NumberAr[0];
             } else if (NumberAr.length == 0) {
                 this.display.textContent = "0";
             }
 
-            // computation
-            // for loop to go throuh an array
+            //COMPUTING
+            for (let i = 0; i < NumberAr.length; i++) {
+                let Sign = opSignAr[i];
+                if (opSignAr[i] == "+") {
+                    console.info("this is a plus operation");
+                    if (this.result == null) {
+                        this.result = NumberAr[i] + NumberAr[i + 1];
+                        Display.textContent = this.result;
+                        Reset.resetStorage();
+                        console.log(NumberAr);
+                    } else {
+                        this.result = this.result + NumberAr[i + 1];
+                        Display.textContent = this.result;
+                        Reset.resetStorage();
+                        console.log(NumberAr);
+                    }
+                } else if (opSignAr[i] == "-") {
+                    console.info("this is a minus operation");
+                    if (this.result == null) {
+                        this.result = NumberAr[i] - NumberAr[i + 1];
+                        Display.textContent = this.result;
+                    } else {
+                        this.result = this.result - NumberAr[i + 1];
+                        Display.textContent = this.result;
+                    }
+
+                } else if (opSignAr[i] == "*") {
+                    console.info("this is a into operation");
+
+                    if (this.result == null) {
+                        this.result = NumberAr[i] * NumberAr[i + 1];
+                        Display.textContent = this.result;
+                    } else {
+                        this.result = this.result * NumberAr[i + 1];
+                        Display.textContent = this.result;
+                    }
+
+                } else if (opSignAr[i] == "/") {
+                    console.info("this is a divide operation");
+
+                    if (this.result == null) {
+                        this.result = NumberAr[i] / NumberAr[i + 1];
+                        Display.textContent = this.result;
+                    } else {
+                        this.result = this.result / NumberAr[i + 1];
+                        Display.textContent = this.result;
+                    }
+                }
+
+            }
 
         });
     }
@@ -179,8 +236,8 @@ class Processing {
 let testDisplay = new DisplayNumber(inputAr, NumberBtn);
 testDisplay.callAll();
 
-// let testReset = new Reset(Display);
-// testReset.callAll();
+let testReset = new Reset(Display);
+testReset.callAll();
 
 let testProcessing = new Processing(OperatorBtn, Display);
 testProcessing.ProcessingNumber();
