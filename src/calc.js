@@ -21,7 +21,6 @@ let historyAr = [];
 let opSignAr = [];
 let NumberAr = [];
 
-console.info(NumberAr.length)
 
 // number input
 class DisplayNumber {
@@ -43,7 +42,6 @@ class DisplayNumber {
         this.displayNumber();
     }
 }
-
 
 class Reset {
     constructor(DisplayReset) {
@@ -72,12 +70,10 @@ class Reset {
     }
 }
 
-
 class Processing {
     constructor(opBtn, display) {
         this.opBtn = opBtn;
         this.display = display;
-        this.onComputationState = false;
         this.result = null;
     }
 
@@ -106,11 +102,8 @@ class Processing {
                 resetAr.resetInputArray();
 
             });
-
         }
-
     }
-
 
     EqualProcess = () => {
         equalSign.addEventListener("click", () => {
@@ -124,33 +117,14 @@ class Processing {
         });
     }
 
-
-    
-
     Computation = () => {
-        // let junk = () => {
-        //     if (opSignAr[0] == "+") {
-        //         console.info("this is a plus operation");
-        //         // let result = 
-        //     } else if (opSignAr[0] == "-") {
-        //         console.info("this is a minus operation");
-        //     } else if (opSignAr[0] == "*") {
-        //         console.info("this is a into operation");
-        //     } else if (opSignAr[0] == "/") {
-        //         console.info("this is a divide operation");
-        //     }
-        // }
-
-        
-
         equalSign.addEventListener("click", () => {
-            let StorageReset= new Reset(Display);
+            let StorageReset = new Reset(Display);
 
-            let AfterComputation =(result) =>{
+            let AfterComputation = (result) => {
                 Display.textContent = result;
                 StorageReset.resetStorage();
             }
-    
 
             //VALIDATION
             if (NumberAr.length == 1) {
@@ -166,7 +140,6 @@ class Processing {
                     if (this.result == null) {
                         this.result = NumberAr[i] + NumberAr[i + 1];
                         AfterComputation(this.result);
-                        
                     } else {
                         this.result = this.result + NumberAr[i + 1];
                         AfterComputation(this.result);
@@ -180,7 +153,6 @@ class Processing {
                         this.result = this.result - NumberAr[i + 1];
                         AfterComputation(this.result);
                     }
-
                 } else if (opSignAr[i] == "*") {
                     console.info("this is a into operation");
 
@@ -191,7 +163,6 @@ class Processing {
                         this.result = this.result * NumberAr[i + 1];
                         AfterComputation(this.result);
                     }
-
                 } else if (opSignAr[i] == "/") {
                     console.info("this is a divide operation");
 
@@ -207,6 +178,12 @@ class Processing {
             }
 
         });
+    }
+
+
+
+    History= ()=>{
+        equalSign
     }
 
 
