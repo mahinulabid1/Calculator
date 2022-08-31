@@ -70,6 +70,15 @@ class Reset {
     }
 }
 
+
+class History{
+    constructor(firstnumber, lastnumber, sign){
+        this.firstnumber = firstnumber;
+        this.lastnumber = lastnumber;
+        this.sign= sign;
+    }
+}
+
 class Processing {
     constructor(opBtn, display) {
         this.opBtn = opBtn;
@@ -123,7 +132,8 @@ class Processing {
 
             let AfterComputation = (result) => {
                 Display.textContent = result;
-                StorageReset.resetStorage();
+                // StorageReset.resetStorage();
+                GlobalResult = result;
             }
 
             //VALIDATION
@@ -140,6 +150,7 @@ class Processing {
                     if (this.result == null) {
                         this.result = NumberAr[i] + NumberAr[i + 1];
                         AfterComputation(this.result);
+                        
                     } else {
                         this.result = this.result + NumberAr[i + 1];
                         AfterComputation(this.result);
@@ -174,17 +185,13 @@ class Processing {
                         AfterComputation(this.result);
                     }
                 }
-
             }
-
         });
     }
 
 
 
-    History= ()=>{
-        equalSign
-    }
+    
 
 
 
@@ -193,7 +200,26 @@ class Processing {
 }
 
 
+class InputHistory{
+    constructor(){
 
+    }
+
+    RecordHistory =()=>{
+        equalSign.addEventListener("click", ()=>{
+            console.info(NumberAr);
+            console.info(opSignAr);
+            // // let ProcessingInfo = new Processing();
+            // console.log(GlobalResult);
+
+
+            for(let  i =0; i< NumberAr.length; i++){
+
+            }
+        });
+    }
+    
+}
 
 
 
@@ -225,3 +251,8 @@ let testProcessing = new Processing(OperatorBtn, Display);
 testProcessing.ProcessingNumber();
 testProcessing.EqualProcess();
 testProcessing.Computation();
+
+
+
+let testHistory =new InputHistory();
+testHistory.RecordHistory();
