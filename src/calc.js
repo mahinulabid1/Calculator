@@ -125,7 +125,7 @@ class Processing {
     }
 
 
-    Reset = new Reset();
+    
 
     Computation = () => {
         // let junk = () => {
@@ -141,8 +141,17 @@ class Processing {
         //     }
         // }
 
+        
 
         equalSign.addEventListener("click", () => {
+            let StorageReset= new Reset(Display);
+
+            let AfterComputation =(result) =>{
+                Display.textContent = result;
+                StorageReset.resetStorage();
+            }
+    
+
             //VALIDATION
             if (NumberAr.length == 1) {
                 this.display.textContent = NumberAr[0];
@@ -152,28 +161,24 @@ class Processing {
 
             //COMPUTING
             for (let i = 0; i < NumberAr.length; i++) {
-                let Sign = opSignAr[i];
                 if (opSignAr[i] == "+") {
                     console.info("this is a plus operation");
                     if (this.result == null) {
                         this.result = NumberAr[i] + NumberAr[i + 1];
-                        Display.textContent = this.result;
-                        Reset.resetStorage();
-                        console.log(NumberAr);
+                        AfterComputation(this.result);
+                        
                     } else {
                         this.result = this.result + NumberAr[i + 1];
-                        Display.textContent = this.result;
-                        Reset.resetStorage();
-                        console.log(NumberAr);
+                        AfterComputation(this.result);
                     }
                 } else if (opSignAr[i] == "-") {
                     console.info("this is a minus operation");
                     if (this.result == null) {
                         this.result = NumberAr[i] - NumberAr[i + 1];
-                        Display.textContent = this.result;
+                        AfterComputation(this.result);
                     } else {
                         this.result = this.result - NumberAr[i + 1];
-                        Display.textContent = this.result;
+                        AfterComputation(this.result);
                     }
 
                 } else if (opSignAr[i] == "*") {
@@ -181,10 +186,10 @@ class Processing {
 
                     if (this.result == null) {
                         this.result = NumberAr[i] * NumberAr[i + 1];
-                        Display.textContent = this.result;
+                        AfterComputation(this.result);
                     } else {
                         this.result = this.result * NumberAr[i + 1];
-                        Display.textContent = this.result;
+                        AfterComputation(this.result);
                     }
 
                 } else if (opSignAr[i] == "/") {
@@ -192,10 +197,10 @@ class Processing {
 
                     if (this.result == null) {
                         this.result = NumberAr[i] / NumberAr[i + 1];
-                        Display.textContent = this.result;
+                        AfterComputation(this.result);
                     } else {
                         this.result = this.result / NumberAr[i + 1];
-                        Display.textContent = this.result;
+                        AfterComputation(this.result);
                     }
                 }
 
