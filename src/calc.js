@@ -19,7 +19,9 @@ const equalSign = document.querySelector(".equal-sign");
 let inputAr = [];
 let historyAr = [];
 let opSignAr = [];
-let NumberAr= [];
+let NumberAr = [];
+
+console.info(NumberAr.length)
 
 // number input
 class DisplayNumber {
@@ -66,67 +68,88 @@ class Reset {
 }
 
 
-class Processing{
-    constructor(opBtn){
-        // this.info= info;
+class Processing {
+    constructor(opBtn, display) {
         this.opBtn = opBtn;
-        // this.firstPhase = false;
-        
+        this.display = display;
     }
 
-    ProcessingNumber(){ //name should be storing information
-        for(let i =0; i < this.opBtn.length; i++){
+    ProcessingNumber() { //name should be storing information
+        for (let i = 0; i < this.opBtn.length; i++) {
             let btn = this.opBtn[i];
-            btn.addEventListener('click', (event)=>{
+            btn.addEventListener('click', (event) => {
                 let Number = inputAr.join("");
                 Number = parseFloat(Number);
                 NumberAr.push(Number);
 
 
-                if(event.target.classList.contains("plus-sign")){
+                if (event.target.classList.contains("plus-sign")) {
                     opSignAr.push("+");
-                }else if(event.target.classList.contains("minus-sign")){
+                } else if (event.target.classList.contains("minus-sign")) {
                     opSignAr.push("-");
                 }
-                else if(event.target.classList.contains("into-sign")){
+                else if (event.target.classList.contains("into-sign")) {
                     opSignAr.push("*");
                 }
-                else if(event.target.classList.contains("divide-sign")){
+                else if (event.target.classList.contains("divide-sign")) {
                     opSignAr.push("/");
                 }
-                // console.info(NumberAr);
-                // console.info(opSignAr);
                 let resetAr = new Reset(Display);
                 resetAr.resetDisplay();
                 resetAr.resetInputArray();
-                
+
             });
-            
+
         }
-        
+
     }
 
 
-    EqualProcess=()=>{
-        equalSign.addEventListener("click", ()=>{
+    EqualProcess = () => {
+        equalSign.addEventListener("click", () => {
+            if(inputAr.length == 0){
+                return; //error handling
+            }
+            
             let number = inputAr.join('');
-            number= parseFloat(number);
+            number = parseFloat(number);
             NumberAr.push(number);
-
-            console.info(NumberAr);
-            console.info(opSignAr);
         });
     }
 
 
-    Computation=()=>{
-        
+    Computation = () => {
+        let junk = () => {
+            if (opSignAr[0] == "+") {
+                console.info("this is a plus operation");
+                // let result = 
+            } else if (opSignAr[0] == "-") {
+                console.info("this is a minus operation");
+            } else if (opSignAr[0] == "*") {
+                console.info("this is a into operation");
+            } else if (opSignAr[0] == "/") {
+                console.info("this is a divide operation");
+            }
+        }
+
+        equalSign.addEventListener("click", () => {
+            //VALIDATION
+            if (NumberAr.length == 1) {
+                // do something
+                this.display.textContent = NumberAr[0];
+            } else if (NumberAr.length == 0) {
+                this.display.textContent = "no inputnumber";
+            }
+
+
+
+        });
     }
 
-   
 
 
-    
+
+
 }
 
 
@@ -158,6 +181,7 @@ testDisplay.callAll();
 // let testReset = new Reset(Display);
 // testReset.callAll();
 
-let testProcessing = new Processing(OperatorBtn);
+let testProcessing = new Processing(OperatorBtn, Display);
 testProcessing.ProcessingNumber();
 testProcessing.EqualProcess();
+testProcessing.Computation();
