@@ -72,11 +72,27 @@ class Reset {
 
 
 class History{
-    constructor(firstnumber, lastnumber, sign){
-        this.firstnumber = firstnumber;
-        this.lastnumber = lastnumber;
-        this.sign= sign;
+    constructor(){
+
     }
+
+    storeHistory =() =>{
+        let x =[];
+        for(let i =0; i < NumberAr.length; i++){
+            x.push(NumberAr[i]);
+            if(opSignAr[i] != null || opSignAr[i] != undefined){
+                x.push(opSignAr[i]);
+            }
+
+        }
+    }
+
+    getHistory= () =>{
+        equalSign.addEventListener("click", ()=>{
+            
+        });
+    }
+    
 }
 
 class Processing {
@@ -128,12 +144,14 @@ class Processing {
 
     Computation = () => {
         equalSign.addEventListener("click", () => {
+
+
             let StorageReset = new Reset(Display);
 
             let AfterComputation = (result) => {
                 Display.textContent = result;
                 // StorageReset.resetStorage();
-                GlobalResult = result;
+                
             }
 
             //VALIDATION
@@ -200,26 +218,29 @@ class Processing {
 }
 
 
-class InputHistory{
-    constructor(){
+// class InputHistory{
+//     constructor(){
 
-    }
+//     }
 
-    RecordHistory =()=>{
-        equalSign.addEventListener("click", ()=>{
-            console.info(NumberAr);
-            console.info(opSignAr);
-            // // let ProcessingInfo = new Processing();
-            // console.log(GlobalResult);
+//     RecordHistory =()=>{
+//         equalSign.addEventListener("click", ()=>{
+//             console.info(NumberAr);
+//             console.info(opSignAr);
+//             // // let ProcessingInfo = new Processing();
+//             // console.log(GlobalResult);
+//             if(NumberAr.length > 0){
+//                 return;
+//             }
 
 
-            for(let  i =0; i< NumberAr.length; i++){
-
-            }
-        });
-    }
+//             for(let  i =0; i< NumberAr.length; i++){
+                
+//             }   
+//         });
+//     }
     
-}
+// }
 
 
 
