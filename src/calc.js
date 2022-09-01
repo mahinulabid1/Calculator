@@ -71,31 +71,31 @@ class Reset {
 }
 
 
-class History {
-    constructor() {
-        this.x = [];
-    }
-    storeHistory = () => {
+// class History {
+//     constructor() {
+//         this.x = [];
+//     }
+//     storeHistory = () => {
 
-        for (let i = 0; i < NumberAr.length; i++) {
-            this.x.push(NumberAr[i]);
-            if (opSignAr[i] != null || opSignAr[i] != undefined) {
-                this.x.push(opSignAr[i]);
-            }
+//         for (let i = 0; i < NumberAr.length; i++) {
+//             this.x.push(NumberAr[i]);
+//             if (opSignAr[i] != null || opSignAr[i] != undefined) {
+//                 this.x.push(opSignAr[i]);
+//             }
 
-        }
-    }
-    getHistory = () => {
-        let resetStorage = new Reset(); //RESET
-        equalSign.addEventListener("click", () => {
-            this.storeHistory();
-            console.info(this.x);
-            historyAr.push(this.x.join(""));
-            console.log(historyAr);
-            resetStorage.resetStorage(); //RESET
-        });
-    }
-}
+//         }
+//     }
+//     getHistory = () => {
+//         let resetStorage = new Reset(); //RESET
+//         equalSign.addEventListener("click", () => {
+//             this.storeHistory();
+//             console.info(this.x);
+//             historyAr.push(this.x.join(""));
+//             console.log(historyAr);
+//             resetStorage.resetStorage(); //RESET
+//         });
+//     }
+// }
 
 class Processing {
     constructor(opBtn, display) {
@@ -230,7 +230,7 @@ testProcessing.Computation();
 
 
 
-let testHistory = new History();
-// testHistory.storeHistory();
+// let testHistory = new History();
+// // testHistory.storeHistory();
 
-testHistory.getHistory();
+// testHistory.getHistory();
