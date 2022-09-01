@@ -124,9 +124,12 @@ class Processing {
                 else if (event.target.classList.contains("divide-sign")) {
                     opSignAr.push("/");
                 }
-                let resetAr = new Reset(Display);
-                resetAr.resetDisplay();
-                resetAr.resetInputArray();
+
+                // RESET SECTION
+
+                // let resetAr = new Reset(Display);
+                // resetAr.resetDisplay();
+                // resetAr.resetInputArray();
 
             });
         }
@@ -146,10 +149,6 @@ class Processing {
 
     Computation = () => {
         equalSign.addEventListener("click", () => {
-
-
-            let StorageReset = new Reset(Display);
-
             let AfterComputation = (result) => {
                 Display.textContent = result;
                 // StorageReset.resetStorage();
