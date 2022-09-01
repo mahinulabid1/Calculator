@@ -71,30 +71,30 @@ class Reset {
 }
 
 
-class History{
-    constructor(){
+class History {
+    constructor() {
         this.x = [];
     }
-    storeHistory =() =>{
-       
-        for(let i =0; i < NumberAr.length; i++){
+    storeHistory = () => {
+
+        for (let i = 0; i < NumberAr.length; i++) {
             this.x.push(NumberAr[i]);
-            if(opSignAr[i] != null || opSignAr[i] != undefined){
+            if (opSignAr[i] != null || opSignAr[i] != undefined) {
                 this.x.push(opSignAr[i]);
             }
 
         }
     }
-    getHistory= () =>{ 
-        let resetStorage = new Reset();
-        equalSign.addEventListener("click", ()=>{
+    getHistory = () => {
+        let resetStorage = new Reset(); //RESET
+        equalSign.addEventListener("click", () => {
             this.storeHistory();
             console.info(this.x);
             historyAr.push(this.x.join(""));
             console.log(historyAr);
-            resetStorage.resetStorage();
+            resetStorage.resetStorage(); //RESET
         });
-    } 
+    }
 }
 
 class Processing {
@@ -107,7 +107,7 @@ class Processing {
     ProcessingNumber() { //name should be storing information
         for (let i = 0; i < this.opBtn.length; i++) {
             let btn = this.opBtn[i];
-            btn.addEventListener('click', (event) => {
+            btn.addEventListener('click', (event) => { //OPERATION BUTTON
                 let Number = inputAr.join("");
                 Number = parseFloat(Number);
                 NumberAr.push(Number);
@@ -132,7 +132,7 @@ class Processing {
         }
     }
 
-    EqualProcess = () => {
+    StoreNumberInfo = () => {
         equalSign.addEventListener("click", () => {
             if (inputAr.length == 0) {
                 return; //error handling
@@ -153,7 +153,7 @@ class Processing {
             let AfterComputation = (result) => {
                 Display.textContent = result;
                 // StorageReset.resetStorage();
-                
+
             }
 
             //VALIDATION
@@ -170,7 +170,7 @@ class Processing {
                     if (this.result == null) {
                         this.result = NumberAr[i] + NumberAr[i + 1];
                         AfterComputation(this.result);
-                        
+
                     } else {
                         this.result = this.result + NumberAr[i + 1];
                         AfterComputation(this.result);
@@ -225,12 +225,12 @@ testReset.callAll();
 
 let testProcessing = new Processing(OperatorBtn, Display);
 testProcessing.ProcessingNumber();
-testProcessing.EqualProcess();
+testProcessing.StoreNumberInfo();
 testProcessing.Computation();
 
 
 
-let testHistory =new History();
+let testHistory = new History();
 // testHistory.storeHistory();
 
 testHistory.getHistory();
