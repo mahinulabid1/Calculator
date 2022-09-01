@@ -73,26 +73,28 @@ class Reset {
 
 class History{
     constructor(){
-
+        this.x = [];
     }
-
     storeHistory =() =>{
-        let x =[];
+       
         for(let i =0; i < NumberAr.length; i++){
-            x.push(NumberAr[i]);
+            this.x.push(NumberAr[i]);
             if(opSignAr[i] != null || opSignAr[i] != undefined){
-                x.push(opSignAr[i]);
+                this.x.push(opSignAr[i]);
             }
 
         }
     }
-
-    getHistory= () =>{
+    getHistory= () =>{ 
+        let resetStorage = new Reset();
         equalSign.addEventListener("click", ()=>{
-            
+            this.storeHistory();
+            console.info(this.x);
+            historyAr.push(this.x.join(""));
+            console.log(historyAr);
+            resetStorage.resetStorage();
         });
-    }
-    
+    } 
 }
 
 class Processing {
@@ -206,54 +208,7 @@ class Processing {
             }
         });
     }
-
-
-
-    
-
-
-
-
-
 }
-
-
-// class InputHistory{
-//     constructor(){
-
-//     }
-
-//     RecordHistory =()=>{
-//         equalSign.addEventListener("click", ()=>{
-//             console.info(NumberAr);
-//             console.info(opSignAr);
-//             // // let ProcessingInfo = new Processing();
-//             // console.log(GlobalResult);
-//             if(NumberAr.length > 0){
-//                 return;
-//             }
-
-
-//             for(let  i =0; i< NumberAr.length; i++){
-                
-//             }   
-//         });
-//     }
-    
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -275,5 +230,7 @@ testProcessing.Computation();
 
 
 
-let testHistory =new InputHistory();
-testHistory.RecordHistory();
+let testHistory =new History();
+// testHistory.storeHistory();
+
+testHistory.getHistory();
