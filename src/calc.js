@@ -54,37 +54,37 @@ class Processing {
     }
 
     StoringOperator(eventTarget) { //name should be storing information
-        for (let i = 0; i < this.opBtn.length; i++) {
-            let btn = this.opBtn[i];
-            btn.addEventListener('click', (event) => { //OPERATION BUTTON
-                let Number = inputAr.join("");
-                Number = parseFloat(Number);
-                NumberAr.push(Number);
+        // for (let i = 0; i < this.opBtn.length; i++) {
+        //     let btn = this.opBtn[i];
+        //     btn.addEventListener('click', (event) => { //OPERATION BUTTON
 
-                if (event.target.classList.contains("plus-sign")) {
-                    opSignAr.push("+");
-                } else if (event.target.classList.contains("minus-sign")) {
-                    opSignAr.push("-");
-                }
-                else if (event.target.classList.contains("into-sign")) {
-                    opSignAr.push("*");
-                }
-                else if (event.target.classList.contains("divide-sign")) {
-                    opSignAr.push("/");
-                }
 
-                // RESET SECTION
-
-                // let resetAr = new Reset(Display);
-                // resetAr.resetDisplay();
-                // resetAr.resetInputArray();
-
-            });
+        if (eventTarget.classList.contains("plus-sign")) {
+            opSignAr.push("+");
+        } else if (eventTarget.classList.contains("minus-sign")) {
+            opSignAr.push("-");
         }
+        else if (eventTarget.classList.contains("into-sign")) {
+            opSignAr.push("*");
+        }
+        else if (eventTarget.classList.contains("divide-sign")) {
+            opSignAr.push("/");
+        }
+
+        // RESET SECTION
+
+        // let resetAr = new Reset(Display);
+        // resetAr.resetDisplay();
+        // resetAr.resetInputArray();
+
+        // });
+        // }
     }
 
     StoreNumberData = () => {
-
+        let Number = inputAr.join("");
+        Number = parseFloat(Number);
+        NumberAr.push(Number);
     }
 
     StoreNumberInfo = () => {
@@ -259,8 +259,11 @@ testProcessing.Computation();
 let testDisplay = new DisplayNumber(Display);
 for (let i = 0; i < NumberBtn.length; i++) {
     let Btn = NumberBtn[i];
-    Btn.addEventListener("click",(event)=>{
+    Btn.addEventListener("click", (event) => {
         console.info("status: Button Operation Clicked");
         testDisplay.displayNumber(event.target);
     });
 }
+
+
+// OPERATOR BUTTON CLICK EVENT
