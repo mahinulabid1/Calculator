@@ -39,7 +39,7 @@ class Processing {
     constructor(opBtn, display) {
         this.opBtn = opBtn;
         this.display = display;
-        // this.result = null;
+        this.result = null;
     }
 
     StoringOperator(eventTarget) { //name should be storing information
@@ -181,7 +181,7 @@ class Reset {
     }
 
     resetInputArray = () => {
-        console.info("Info: Reset Input Array")
+        console.info("Info: Reset Input Array");
         inputAr = [];
     }
 
