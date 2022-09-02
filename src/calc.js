@@ -88,6 +88,7 @@ class Processing {
 
 
     Computation = () => {
+        console.log("starting computation");
         // equalSign.addEventListener("click", () => {
         let ShowResult = (result, firstNumber, opSign, SecondNumber) => {
             Display.textContent = result;
@@ -98,8 +99,10 @@ class Processing {
         //VALIDATION
         if (NumberAr.length == 1) {
             this.display.textContent = NumberAr[0];
+            return;
         } else if (NumberAr.length == 0) {
             this.display.textContent = "0";
+            return;
         }
 
         //COMPUTING
@@ -180,7 +183,7 @@ class Reset {
         this.displayReset.textContent = 0;
     }
 
-    ReadyToTakeNextNumber= ()=>{
+    ReadyToTakeNextNumber = () => {
         this.displayReset.textContent = ">>";
     }
 
@@ -253,23 +256,27 @@ for (let i = 0; i < NumberBtn.length; i++) {
 }
 
 
-let testProcessing = new Processing();
-let testReset = new Reset();
+let testProcessing = new Processing(OperatorBtn, Display);
+let testReset = new Reset(Display);
 // OPERATOR BUTTON CLICK EVENT
 for (let i = 0; i < OperatorBtn.length; i++) {
     let btn = OperatorBtn[i];
     btn.addEventListener("click", (event) => {
         testProcessing.StoringOperator(event.target);
         testProcessing.StoreNumberData();
-
+        testReset.ReadyToTakeNextNumber(); //SHOW NEXT >> SIGN
+        testReset.resetInputArray(); //RESET INPUT ARRAY
     });
 }
 
 
 // EQUAL BUTTON CLICK
-for(let i = 0; i<equalSign.length; i++){
-    let btn = equalSign[i];
-    btn.addEventListener("click", ()=>{
-        console.info("Status: Equal Button clicked");
-    });
-}
+equalSign.addEventListener("click", (event) => {
+    console.info("Status: Equal Button clicked");
+    testProcessing.StoreNumberDataInEqual();
+    testProcessing.Computation();
+});
+
+
+// RESET FUNCTIONALITIES
+
