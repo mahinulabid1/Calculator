@@ -14,7 +14,7 @@ const minusSign = document.querySelector(".minus-sign");
 const intoSign = document.querySelector(".into-sign");
 const divideSign = document.querySelector('.divide-sign');
 const equalSign = document.querySelector(".equal-sign");
-const storeInfo = document.querySelectorAll('. js-store-info');
+const storeInfo = document.querySelectorAll('.js-store-info');
 
 
 
@@ -28,7 +28,7 @@ let NumberAr = [];
 class DisplayNumber {
     constructor(inputArray, numberInput) {
         this.inputArray = inputArray;
-        this.NumberInput = numberInput;
+        // this.NumberInput = numberInput;
     }
 
     displayNumber = (eventTarget) => {
@@ -235,8 +235,8 @@ class Reset {
 //==========================================================
 // RUN APPLICATION
 
-let testDisplay = new DisplayNumber(inputAr, NumberBtn);
-testDisplay.callAll();
+// let testDisplay = new DisplayNumber(inputAr, NumberBtn);
+// testDisplay.callAll();
 
 let testReset = new Reset(Display);
 testReset.callAll();
@@ -256,10 +256,11 @@ testProcessing.Computation();
 
 
 // RUN NUMBER INPUT
-
-for (let i = 0; i < this.NumberInput.length; i++) {
-    let Btn = this.NumberInput[i];
-    Btn.addEventListener("click",()=>{
-
+let testDisplay = new DisplayNumber(Display);
+for (let i = 0; i < NumberBtn.length; i++) {
+    let Btn = NumberBtn[i];
+    Btn.addEventListener("click",(event)=>{
+        console.info("status: Button Operation Clicked");
+        testDisplay.displayNumber(event.target);
     });
 }
