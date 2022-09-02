@@ -180,6 +180,10 @@ class Reset {
         this.displayReset.textContent = 0;
     }
 
+    ReadyToTakeNextNumber= ()=>{
+        this.displayReset.textContent = ">>";
+    }
+
     resetInputArray = () => {
         console.info("Info: Reset Input Array");
         inputAr = [];
@@ -250,12 +254,14 @@ for (let i = 0; i < NumberBtn.length; i++) {
 
 
 let testProcessing = new Processing();
+let testReset = new Reset();
 // OPERATOR BUTTON CLICK EVENT
 for (let i = 0; i < OperatorBtn.length; i++) {
     let btn = OperatorBtn[i];
     btn.addEventListener("click", (event) => {
         testProcessing.StoringOperator(event.target);
         testProcessing.StoreNumberData();
+
     });
 }
 
