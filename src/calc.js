@@ -76,74 +76,71 @@ class Processing {
 
     StoreNumberDataInEqual = () => {
         // equalSign.addEventListener("click", () => {
-            if (inputAr.length == 0) {
-                return; //error handling
-            }
-            // let number = inputAr.join('');
-            // number = parseFloat(number);
-            // NumberAr.push(number);
-            this.StoreNumberData();
+        if (inputAr.length == 0) {
+            return; //error handling
+        }
+        // let number = inputAr.join('');
+        // number = parseFloat(number);
+        // NumberAr.push(number);
+        this.StoreNumberData();
         // });
     }
 
+
     Computation = () => {
-        equalSign.addEventListener("click", () => {
-            let AfterComputation = (result) => {
-                Display.textContent = result;
-                // StorageReset.resetStorage();
-            }
+        // equalSign.addEventListener("click", () => {
+        let ShowResult = (result, firstNumber, opSign, SecondNumber) => {
+            Display.textContent = result;
+            console.info(`Operation Status: ${firstNumber} ${opSign} ${SecondNumber}`);
+            // StorageReset.resetStorage();
+        }
 
-            //VALIDATION
-            if (NumberAr.length == 1) {
-                this.display.textContent = NumberAr[0];
-            } else if (NumberAr.length == 0) {
-                this.display.textContent = "0";
-            }
+        //VALIDATION
+        if (NumberAr.length == 1) {
+            this.display.textContent = NumberAr[0];
+        } else if (NumberAr.length == 0) {
+            this.display.textContent = "0";
+        }
 
-            //COMPUTING
-            for (let i = 0; i < NumberAr.length; i++) {
-                if (opSignAr[i] == "+") {
-                    console.info("this is a plus operation");
-                    if (this.result == null) {
-                        this.result = NumberAr[i] + NumberAr[i + 1];
-                        AfterComputation(this.result);
+        //COMPUTING
+        for (let i = 0; i < NumberAr.length; i++) {
+            if (opSignAr[i] == "+") {
+                if (this.result == null) {
+                    this.result = NumberAr[i] + NumberAr[i + 1];
+                    ShowResult(this.result, NumberAr[i], opSignAr[i], NumberAr[i + 1]);
+                } else {
+                    this.result = this.result + NumberAr[i + 1];
+                    ShowResult(this.result, NumberAr[i], opSignAr[i], NumberAr[i + 1]);
+                }
+            } else if (opSignAr[i] == "-") {
+                if (this.result == null) {
+                    this.result = NumberAr[i] - NumberAr[i + 1];
+                    ShowResult(this.result, NumberAr[i], opSignAr[i], NumberAr[i + 1]);
+                } else {
+                    this.result = this.result - NumberAr[i + 1];
+                    ShowResult(this.result, NumberAr[i], opSignAr[i], NumberAr[i + 1]);
+                }
+            } else if (opSignAr[i] == "*") {
 
-                    } else {
-                        this.result = this.result + NumberAr[i + 1];
-                        AfterComputation(this.result);
-                    }
-                } else if (opSignAr[i] == "-") {
-                    console.info("this is a minus operation");
-                    if (this.result == null) {
-                        this.result = NumberAr[i] - NumberAr[i + 1];
-                        AfterComputation(this.result);
-                    } else {
-                        this.result = this.result - NumberAr[i + 1];
-                        AfterComputation(this.result);
-                    }
-                } else if (opSignAr[i] == "*") {
-                    console.info("this is a into operation");
+                if (this.result == null) {
+                    this.result = NumberAr[i] * NumberAr[i + 1];
+                    ShowResult(this.result, NumberAr[i], opSignAr[i], NumberAr[i + 1]);
+                } else {
+                    this.result = this.result * NumberAr[i + 1];
+                    ShowResult(this.result, NumberAr[i], opSignAr[i], NumberAr[i + 1]);
+                }
+            } else if (opSignAr[i] == "/") {
 
-                    if (this.result == null) {
-                        this.result = NumberAr[i] * NumberAr[i + 1];
-                        AfterComputation(this.result);
-                    } else {
-                        this.result = this.result * NumberAr[i + 1];
-                        AfterComputation(this.result);
-                    }
-                } else if (opSignAr[i] == "/") {
-                    console.info("this is a divide operation");
-
-                    if (this.result == null) {
-                        this.result = NumberAr[i] / NumberAr[i + 1];
-                        AfterComputation(this.result);
-                    } else {
-                        this.result = this.result / NumberAr[i + 1];
-                        AfterComputation(this.result);
-                    }
+                if (this.result == null) {
+                    this.result = NumberAr[i] / NumberAr[i + 1];
+                    ShowResult(this.result, NumberAr[i], opSignAr[i], NumberAr[i + 1]);
+                } else {
+                    this.result = this.result / NumberAr[i + 1];
+                    ShowResult(this.result, NumberAr[i], opSignAr[i], NumberAr[i + 1]);
                 }
             }
-        });
+        }
+        // });
     }
 }
 
@@ -252,12 +249,21 @@ for (let i = 0; i < NumberBtn.length; i++) {
 }
 
 
-let testProcessing= new Processing();
+let testProcessing = new Processing();
 // OPERATOR BUTTON CLICK EVENT
-for(let i =0; i< OperatorBtn.length; i++){
+for (let i = 0; i < OperatorBtn.length; i++) {
     let btn = OperatorBtn[i];
-    btn.addEventListener("click",(event)=>{
+    btn.addEventListener("click", (event) => {
         testProcessing.StoringOperator(event.target);
         testProcessing.StoreNumberData();
+    });
+}
+
+
+// EQUAL BUTTON CLICK
+for(let i = 0; i<equalSign.length; i++){
+    let btn = equalSign[i];
+    btn.addEventListener("click", ()=>{
+        console.info("Status: Equal Button clicked");
     });
 }
