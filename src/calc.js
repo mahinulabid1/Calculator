@@ -26,31 +26,20 @@ let NumberAr = [];
 
 // number input
 class DisplayNumber {
-    constructor(inputArray, numberInput) {
-        this.inputArray = inputArray;
-        // this.NumberInput = numberInput;
+    constructor(inputArray) {
+        // this.inputArray = inputArray;
     }
-
     displayNumber = (eventTarget) => {
-        // for (let i = 0; i < this.NumberInput.length; i++) {
-        //     let Btn = this.NumberInput[i];
-        //     Btn.addEventListener("click", (event) => {
         inputAr.push(eventTarget.textContent);
         Display.textContent = inputAr.join("");
-        //     });
-        // }
-    }
-    callAll = () => {
-        this.displayNumber();
     }
 }
-
 
 class Processing {
     constructor(opBtn, display) {
         this.opBtn = opBtn;
         this.display = display;
-        this.result = null;
+        // this.result = null;
     }
 
     StoringOperator(eventTarget) { //name should be storing information
@@ -72,11 +61,9 @@ class Processing {
         }
 
         // RESET SECTION
-
         // let resetAr = new Reset(Display);
         // resetAr.resetDisplay();
         // resetAr.resetInputArray();
-
         // });
         // }
     }
@@ -87,16 +74,16 @@ class Processing {
         NumberAr.push(Number);
     }
 
-    StoreNumberInfo = () => {
-        equalSign.addEventListener("click", () => {
+    StoreNumberDataInEqual = () => {
+        // equalSign.addEventListener("click", () => {
             if (inputAr.length == 0) {
                 return; //error handling
             }
-
-            let number = inputAr.join('');
-            number = parseFloat(number);
-            NumberAr.push(number);
-        });
+            // let number = inputAr.join('');
+            // number = parseFloat(number);
+            // NumberAr.push(number);
+            this.StoreNumberData();
+        // });
     }
 
     Computation = () => {
@@ -104,7 +91,6 @@ class Processing {
             let AfterComputation = (result) => {
                 Display.textContent = result;
                 // StorageReset.resetStorage();
-
             }
 
             //VALIDATION
@@ -238,13 +224,13 @@ class Reset {
 // let testDisplay = new DisplayNumber(inputAr, NumberBtn);
 // testDisplay.callAll();
 
-let testReset = new Reset(Display);
-testReset.callAll();
+// let testReset = new Reset(Display);
+// testReset.callAll();
 
-let testProcessing = new Processing(OperatorBtn, Display);
-testProcessing.StoringOperator();
-testProcessing.StoreNumberInfo();
-testProcessing.Computation();
+// let testProcessing = new Processing(OperatorBtn, Display);
+// testProcessing.StoringOperator();
+// // testProcessing.StoreNumberInfo();
+// testProcessing.Computation();
 
 
 
@@ -266,4 +252,12 @@ for (let i = 0; i < NumberBtn.length; i++) {
 }
 
 
+let testProcessing= new Processing();
 // OPERATOR BUTTON CLICK EVENT
+for(let i =0; i< OperatorBtn.length; i++){
+    let btn = OperatorBtn[i];
+    btn.addEventListener("click",(event)=>{
+        testProcessing.StoringOperator(event.target);
+        testProcessing.StoreNumberData();
+    });
+}
