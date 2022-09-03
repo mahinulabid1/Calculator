@@ -175,7 +175,7 @@ class History {
             HistoryULList.textContent = "There are no history yet";
             return;
         }else{
-            HistoryULList.textContent = "";
+            HistoryULList.textContent = "" ;
         }
         for (let i = 0; i < historyAr.length; i++) {
             let list = document.createElement("li");
