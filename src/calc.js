@@ -43,11 +43,6 @@ class Processing {
     }
 
     StoringOperator(eventTarget) { //name should be storing information
-        // for (let i = 0; i < this.opBtn.length; i++) {
-        //     let btn = this.opBtn[i];
-        //     btn.addEventListener('click', (event) => { //OPERATION BUTTON
-
-
         if (eventTarget.classList.contains("plus-sign")) {
             opSignAr.push("+");
         } else if (eventTarget.classList.contains("minus-sign")) {
@@ -59,13 +54,6 @@ class Processing {
         else if (eventTarget.classList.contains("divide-sign")) {
             opSignAr.push("/");
         }
-
-        // RESET SECTION
-        // let resetAr = new Reset(Display);
-        // resetAr.resetDisplay();
-        // resetAr.resetInputArray();
-        // });
-        // }
     }
 
     StoreNumberData = () => {
