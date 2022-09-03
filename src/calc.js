@@ -14,6 +14,7 @@ const intoSign = document.querySelector(".into-sign");
 const divideSign = document.querySelector('.divide-sign');
 const equalSign = document.querySelector(".equal-sign");
 const storeInfo = document.querySelectorAll('.js-store-info');
+const HistoryULList = document.querySelector(".history-information-ul");
 
 
 
@@ -165,7 +166,24 @@ class History {
     StoreHistory = () => {
         historyAr.push(this.x);
         console.log(historyAr);
-        this.x =[];
+        this.x = [];
+    }
+
+    RetrieveNinsertInDOM = () => {
+        console.log(historyAr.length);
+        if(historyAr.length == 0){
+            HistoryULList.textContent = "There are no history yet";
+            return;
+        }else{
+            HistoryULList.textContent = "";
+        }
+        for (let i = 0; i < historyAr.length; i++) {
+            let list = document.createElement("li");
+            let ar = historyAr[i].join(""); //each of the element is also an array
+            console.log(`History:  ${ar}`);
+            list.textContent =ar;
+            HistoryULList.append(list);
+        }
     }
 }
 
@@ -214,9 +232,6 @@ equalSign.addEventListener("click", () => {
     console.info("Status: Equal Button clicked");
     testProcessing.StoreNumberDataInEqual();
     testProcessing.Computation();
-    console.log(inputAr);
-    console.log(NumberAr);
-    console.log(opSignAr);
     testProcessing.result = null; //another reset 
 });
 
@@ -226,16 +241,16 @@ resetBtn.addEventListener("click", () => {
     testReset.resetInputArray();
     testReset.resetStorage();
     testReset.resetDisplay();
-    console.log(inputAr);
-    console.log(NumberAr);
-    console.log(opSignAr);
     testProcessing.result = null; //another reset 
 });
 
 
 let testHistory = new History();
 // HISTORY FUNCTIONALITIES
-equalSign.addEventListener("click", ()=>{
+equalSign.addEventListener("click", () => {
     testHistory.ProcessHistory();
     testHistory.StoreHistory();
+    testHistory.RetrieveNinsertInDOM();
 });
+
+testHistory.RetrieveNinsertInDOM();
