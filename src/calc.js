@@ -150,22 +150,13 @@ class Reset {
         opSignAr = [];
         NumberAr = [];
     }
-
-    callAll = () => {
-        console.info("reset is working");
-        resetBtn.addEventListener("click", () => {
-            this.resetDisplay();
-            this.resetInputArray();
-        });
-    }
 }
 
 class History {
     constructor() {
         this.x = [];
     }
-    storeHistory = () => {
-
+    ProcessHistory = () => {
         for (let i = 0; i < NumberAr.length; i++) {
             this.x.push(NumberAr[i]);
             if (opSignAr[i] != null || opSignAr[i] != undefined) {
@@ -173,15 +164,9 @@ class History {
             }
         }
     }
-    getHistory = () => {
-
-        equalSign.addEventListener("click", () => {
-            this.storeHistory();
-            console.info(this.x);
-            historyAr.push(this.x.join(""));
-            console.log(historyAr);
-
-        });
+    StoreHistory = () => {
+        historyAr.push(this.x);
+        console.log(historyAr);
     }
 }
 
@@ -226,7 +211,7 @@ for (let i = 0; i < OperatorBtn.length; i++) {
 }
 
 // EQUAL BUTTON CLICK
-equalSign.addEventListener("click", (event) => {
+equalSign.addEventListener("click", () => {
     console.info("Status: Equal Button clicked");
     testProcessing.StoreNumberDataInEqual();
     testProcessing.Computation();
