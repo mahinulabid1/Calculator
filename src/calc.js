@@ -1,4 +1,3 @@
-// ISSUES: EQUAL DOES NOT RESET THE ARRAY
 // WHAT TO MAINTAIN
 // 1) ABSTRACTION
 // 2) USE OF CLASS
@@ -26,8 +25,8 @@ let NumberAr = [];
 
 // number input
 class DisplayNumber {
-    constructor(inputArray) {
-        // this.inputArray = inputArray;
+    constructor(Display) {
+        this.Display = Display;
     }
     displayNumber = (eventTarget) => {
         inputAr.push(eventTarget.textContent);
@@ -124,11 +123,8 @@ class Processing {
                 }
             }
         }
-        // });
     }
 }
-
-
 
 
 
@@ -178,13 +174,13 @@ class History {
         }
     }
     getHistory = () => {
-        let resetStorage = new Reset(); //RESET
+
         equalSign.addEventListener("click", () => {
             this.storeHistory();
             console.info(this.x);
             historyAr.push(this.x.join(""));
             console.log(historyAr);
-            resetStorage.resetStorage(); //RESET
+
         });
     }
 }
@@ -237,11 +233,11 @@ equalSign.addEventListener("click", (event) => {
     console.log(inputAr);
     console.log(NumberAr);
     console.log(opSignAr);
-    testProcessing.result=null; //another reset 
+    testProcessing.result = null; //another reset 
 });
 
 // RESET FUNCTIONALITIES
-resetBtn.addEventListener("click", ()=>{
+resetBtn.addEventListener("click", () => {
     console.info("Status: Reset Functionalities working");
     testReset.resetInputArray();
     testReset.resetStorage();
@@ -249,7 +245,7 @@ resetBtn.addEventListener("click", ()=>{
     console.log(inputAr);
     console.log(NumberAr);
     console.log(opSignAr);
-    testProcessing.result=null; //another reset 
+    testProcessing.result = null; //another reset 
 });
 
 
