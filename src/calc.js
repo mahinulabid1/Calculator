@@ -92,7 +92,7 @@ class Processing {
         // equalSign.addEventListener("click", () => {
         let ShowResult = (result, firstNumber, opSign, SecondNumber) => {
             Display.textContent = result;
-            console.info(`Operation Status: ${firstNumber} ${opSign} ${SecondNumber}`);
+            console.info(`Operation Status: ${firstNumber} ${opSign} ${SecondNumber} ${result}`);
             // StorageReset.resetStorage();
         }
 
@@ -275,8 +275,22 @@ equalSign.addEventListener("click", (event) => {
     console.info("Status: Equal Button clicked");
     testProcessing.StoreNumberDataInEqual();
     testProcessing.Computation();
+    console.log(inputAr);
+    console.log(NumberAr);
+    console.log(opSignAr);
+    testProcessing.result=null; //another reset 
 });
 
 
 // RESET FUNCTIONALITIES
 
+resetBtn.addEventListener("click", ()=>{
+    console.info("Status: Reset Functionalities working");
+    testReset.resetInputArray();
+    testReset.resetStorage();
+    testReset.resetDisplay();
+    console.log(inputAr);
+    console.log(NumberAr);
+    console.log(opSignAr);
+    testProcessing.result=null; //another reset 
+});
