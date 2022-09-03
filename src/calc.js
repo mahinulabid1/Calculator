@@ -75,15 +75,10 @@ class Processing {
     }
 
     StoreNumberDataInEqual = () => {
-        // equalSign.addEventListener("click", () => {
         if (inputAr.length == 0) {
             return; //error handling
         }
-        // let number = inputAr.join('');
-        // number = parseFloat(number);
-        // NumberAr.push(number);
         this.StoreNumberData();
-        // });
     }
 
 
