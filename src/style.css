@@ -87,3 +87,10 @@ body{
 .bottom-row{
     width: 49.4%;
 }
+
+
+/* HISTORY SECTION */
+.history-section{
+    height: 400px;
+    overflow-y:scroll;
+}
