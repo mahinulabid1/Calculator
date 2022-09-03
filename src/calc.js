@@ -162,14 +162,15 @@ class Reset {
 
 class History {
     constructor() {
-        this.x = [];
+        this.x = {};
     }
     storeHistory = () => {
-
         for (let i = 0; i < NumberAr.length; i++) {
-            this.x.push(NumberAr[i]);
+            let number = `Number_${i}`;
+            this.x.number=NumberAr[i];
             if (opSignAr[i] != null || opSignAr[i] != undefined) {
-                this.x.push(opSignAr[i]);
+                let sign = `sign${i}`;
+                this.x.sign=opSignAr[i];
             }
         }
     }
