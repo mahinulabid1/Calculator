@@ -89,11 +89,9 @@ class Processing {
 
     Computation = () => {
         console.log("starting computation");
-        // equalSign.addEventListener("click", () => {
         let ShowResult = (result, firstNumber, opSign, SecondNumber) => {
             Display.textContent = result;
             console.info(`Operation Status: ${firstNumber} ${opSign} ${SecondNumber} ${result}`);
-            // StorageReset.resetStorage();
         }
 
         //VALIDATION
@@ -148,30 +146,7 @@ class Processing {
 }
 
 
-class History {
-    constructor() {
-        this.x = [];
-    }
-    storeHistory = () => {
 
-        for (let i = 0; i < NumberAr.length; i++) {
-            this.x.push(NumberAr[i]);
-            if (opSignAr[i] != null || opSignAr[i] != undefined) {
-                this.x.push(opSignAr[i]);
-            }
-        }
-    }
-    getHistory = () => {
-        let resetStorage = new Reset(); //RESET
-        equalSign.addEventListener("click", () => {
-            this.storeHistory();
-            console.info(this.x);
-            historyAr.push(this.x.join(""));
-            console.log(historyAr);
-            resetStorage.resetStorage(); //RESET
-        });
-    }
-}
 
 
 class Reset {
@@ -206,7 +181,30 @@ class Reset {
     }
 }
 
+class History {
+    constructor() {
+        this.x = [];
+    }
+    storeHistory = () => {
 
+        for (let i = 0; i < NumberAr.length; i++) {
+            this.x.push(NumberAr[i]);
+            if (opSignAr[i] != null || opSignAr[i] != undefined) {
+                this.x.push(opSignAr[i]);
+            }
+        }
+    }
+    getHistory = () => {
+        let resetStorage = new Reset(); //RESET
+        equalSign.addEventListener("click", () => {
+            this.storeHistory();
+            console.info(this.x);
+            historyAr.push(this.x.join(""));
+            console.log(historyAr);
+            resetStorage.resetStorage(); //RESET
+        });
+    }
+}
 
 
 
@@ -224,27 +222,7 @@ class Reset {
 
 //==========================================================
 // RUN APPLICATION
-
-// let testDisplay = new DisplayNumber(inputAr, NumberBtn);
-// testDisplay.callAll();
-
-// let testReset = new Reset(Display);
-// testReset.callAll();
-
-// let testProcessing = new Processing(OperatorBtn, Display);
-// testProcessing.StoringOperator();
-// // testProcessing.StoreNumberInfo();
-// testProcessing.Computation();
-
-
-
-// let testHistory = new History();
-// // testHistory.storeHistory();
-
-// testHistory.getHistory();
-
-
-
+// =================================================
 // RUN NUMBER INPUT
 let testDisplay = new DisplayNumber(Display);
 for (let i = 0; i < NumberBtn.length; i++) {
@@ -254,7 +232,6 @@ for (let i = 0; i < NumberBtn.length; i++) {
         testDisplay.displayNumber(event.target);
     });
 }
-
 
 let testProcessing = new Processing(OperatorBtn, Display);
 let testReset = new Reset(Display);
@@ -269,7 +246,6 @@ for (let i = 0; i < OperatorBtn.length; i++) {
     });
 }
 
-
 // EQUAL BUTTON CLICK
 equalSign.addEventListener("click", (event) => {
     console.info("Status: Equal Button clicked");
@@ -281,9 +257,7 @@ equalSign.addEventListener("click", (event) => {
     testProcessing.result=null; //another reset 
 });
 
-
 // RESET FUNCTIONALITIES
-
 resetBtn.addEventListener("click", ()=>{
     console.info("Status: Reset Functionalities working");
     testReset.resetInputArray();
@@ -294,3 +268,7 @@ resetBtn.addEventListener("click", ()=>{
     console.log(opSignAr);
     testProcessing.result=null; //another reset 
 });
+
+
+// HISTORY FUNCTIONALITIES
+
