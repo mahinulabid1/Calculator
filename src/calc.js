@@ -68,7 +68,6 @@ class Processing {
         this.StoreNumberData();
     }
 
-
     Computation = () => {
         console.log("starting computation");
         let ShowResult = (result, firstNumber, opSign, SecondNumber) => {
@@ -127,7 +126,6 @@ class Processing {
 }
 
 
-
 class Reset {
     constructor(DisplayReset) {
         this.displayReset = DisplayReset;
@@ -167,6 +165,7 @@ class History {
     StoreHistory = () => {
         historyAr.push(this.x);
         console.log(historyAr);
+        this.x =[];
     }
 }
 
@@ -234,5 +233,9 @@ resetBtn.addEventListener("click", () => {
 });
 
 
+let testHistory = new History();
 // HISTORY FUNCTIONALITIES
-
+equalSign.addEventListener("click", ()=>{
+    testHistory.ProcessHistory();
+    testHistory.StoreHistory();
+});
