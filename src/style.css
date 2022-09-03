@@ -93,4 +93,17 @@ body{
 .history-section{
     height: 400px;
     overflow-y:scroll;
+    background:whitesmoke;
+    width: 500px;
+    box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.363);
+    padding: 20px;
+    position: fixed;
+    top: 50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    -webkit-transform:translate(-50%, -50%);
+    -moz-transform:translate(-50%, -50%);
+    -ms-transform:translate(-50%, -50%);
+    -o-transform:translate(-50%, -50%);
+    display: none;
 }
