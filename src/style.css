@@ -1,56 +1,70 @@
-body{
+body {
     font-family: 'Source Sans Pro', sans-serif;
-    background: #B4CF66;
+    background: #868686;
     min-height: 100vh;
 }
 
-body{
+body {
     overflow-x: hidden;
     overflow-y: hidden;
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
 }
 
-.calculator-container{
+.calculator-container {
+    border-radius: 20px;
     width: 400px;
-    /* background: rgba(245, 245, 245, 0.644); */
-    min-height: 700px;
-    /*centering*/
+    padding: 20px 0;
+    background: rgb(207, 207, 207);
     position: absolute;
     top: 50%;
     left: 50%;
-    transform:translate(-50%, -50%);
-    -webkit-transform:translate(-50%, -50%);
-    -moz-transform:translate(-50%, -50%);
-    -ms-transform:translate(-50%, -50%);
-    -o-transform:translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+
+    box-shadow: 10px 10px 100px rgba(0, 0, 0, 0.548);
+    border: 5px solid rgba(0, 0, 0, 0.562);
 }
 
 
-.display-section{
-    background:#dbeca549;
-    height: 130px; 
-    color: white;
+.display-section {
+    /* background:#f0b00049; */
+    height: 130px;
+    font-size: 50px;
+    color: rgb(19, 19, 19);
+    overflow: hidden;
 }
 
-.button-container, .display-section{
+.button-container,
+.display-section {
     width: 90%;
     margin: 0 auto;
 }
 
-.button-container{
+.button-container {
     flex-wrap: wrap;
 }
 
-.display-section{
-    font-size: 26px;
-}
 
-.input{
+
+.input {
     height: 80px;
-    color:white;
+    color: rgb(87, 87, 87);
     line-height: 80px;
-    font-size: 30px;
-    width:24.5%;
-    background: rgba(41, 41, 41, 0.448);
+    font-size: 25px;
+    width: 24.5%;
+    /* background: rgba(41, 41, 41, 0.448); */
     cursor: pointer;
     margin: 0.8px;
     transition: opacity 400ms;
@@ -58,60 +72,78 @@ body{
     -moz-transition: opacity 400ms;
     -ms-transition: opacity 400ms;
     -o-transition: opacity 400ms;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 
-.input:hover{
+.button-container {
+    margin-top: 20px;
+}
+
+.input:hover {
     opacity: 0.7;
 }
 
 /* SPECIFIC BUTTON */
-.button-reset, .buton-turnOff, .button-history{
+.button-reset,
+.buton-turnOff,
+.button-history {
     font-size: 20px;
     font-weight: 600;
     /* color: rgba(0, 0, 0, 0.59); */
 }
-.button-reset{
-    background: #FFEC5C;
+
+.button-reset {
+    background: #64d8d225;
 }
-.buton-turnOff{
-    background: #FF5A33;
-    color:white;
+
+.buton-turnOff {
+    box-shadow:4px 4px 10px rgba(0, 0, 0, 0.103);
+    background: #85ff3311;
+    color: #f39c12;
 }
-.button-history{
-    background:#44803F;
+
+.button-history {
+    /* background: #44803F; */
+    color: #2ecc71;
 }
-.equal-sign{
+
+.equal-sign {
     background: #146152;
     color: white;
 }
-.bottom-row{
+
+.bottom-row {
     width: 49.4%;
 }
 
 
 /* HISTORY SECTION */
-.history-section{
+.history-section {
     height: 400px;
-    overflow-y:scroll;
-    background:whitesmoke;
+    overflow-y: scroll;
+    background: whitesmoke;
     width: 500px;
     box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.363);
     padding: 20px;
     position: fixed;
     top: 50%;
-    left:50%;
-    transform:translate(-50%, -50%);
-    -webkit-transform:translate(-50%, -50%);
-    -moz-transform:translate(-50%, -50%);
-    -ms-transform:translate(-50%, -50%);
-    -o-transform:translate(-50%, -50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
 }
 
-.history-no-display{
+.history-no-display {
     display: none;
 }
 
-.history-flex-heading{
+.history-flex-heading {
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
 }
