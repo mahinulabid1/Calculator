@@ -26,8 +26,8 @@ body {
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
-    box-shadow: 10px 10px 100px rgba(0, 0, 0, 0.548);
-    border: 5px solid rgba(0, 0, 0, 0.562);
+    box-shadow: 10px 10px 100px rgba(0, 0, 0, 0.315);
+    border: 3px solid rgba(0, 0, 0, 0.562);
     -webkit-user-select: none;
     /* Safari */
     -ms-user-select: none;
