@@ -7,12 +7,6 @@ body {
 body {
     overflow-x: hidden;
     overflow-y: hidden;
-    -webkit-user-select: none;
-    /* Safari */
-    -ms-user-select: none;
-    /* IE 10 and IE 11 */
-    user-select: none;
-    /* Standard syntax */
 }
 
 .calculator-container {
@@ -32,14 +26,17 @@ body {
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
-
     box-shadow: 10px 10px 100px rgba(0, 0, 0, 0.548);
     border: 5px solid rgba(0, 0, 0, 0.562);
+    -webkit-user-select: none;
+    /* Safari */
+    -ms-user-select: none;
+    /* IE 10 and IE 11 */
+    user-select: none;
+    /* Standard syntax */
 }
 
-
 .display-section {
-    /* background:#f0b00049; */
     height: 130px;
     font-size: 50px;
     color: rgb(19, 19, 19);
@@ -56,22 +53,15 @@ body {
     flex-wrap: wrap;
 }
 
-
-
 .input {
     height: 80px;
     color: rgb(87, 87, 87);
     line-height: 80px;
     font-size: 25px;
     width: 24.5%;
-    /* background: rgba(41, 41, 41, 0.448); */
     cursor: pointer;
     margin: 0.8px;
     transition: opacity 400ms;
-    -webkit-transition: opacity 400ms;
-    -moz-transition: opacity 400ms;
-    -ms-transition: opacity 400ms;
-    -o-transition: opacity 400ms;
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -79,12 +69,16 @@ body {
     -o-border-radius: 10px;
 }
 
-.button-container {
-    margin-top: 20px;
+.input{
+    transition: border 0.5s;
+    -webkit-transition: border 0.5s;
+    -moz-transition: border 0.5s;
+    -ms-transition: border 0.5s;
+    -o-transition: border 0.5s;
 }
 
-.input:hover {
-    opacity: 0.7;
+.button-container {
+    margin-top: 20px;
 }
 
 /* SPECIFIC BUTTON */
@@ -105,7 +99,6 @@ body {
 }
 
 .button-history {
-    /* background: #44803F; */
     background: #2ecc701e;
     color: #2ecc71;
 }
