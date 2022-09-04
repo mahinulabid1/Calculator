@@ -93,7 +93,6 @@ body {
 .button-history {
     font-size: 20px;
     font-weight: 600;
-    /* color: rgba(0, 0, 0, 0.59); */
 }
 
 .button-reset {
@@ -101,13 +100,13 @@ body {
 }
 
 .buton-turnOff {
-    box-shadow:4px 4px 10px rgba(0, 0, 0, 0.103);
     background: #85ff3311;
     color: #f39c12;
 }
 
 .button-history {
     /* background: #44803F; */
+    background: #2ecc701e;
     color: #2ecc71;
 }
 
@@ -118,8 +117,18 @@ body {
 
 .bottom-row {
     width: 49.4%;
+    border:1px solid rgba(0, 0, 0, 0);
+}
+.dot-button{
+    border: 1px solid rgba(0, 0, 0, 0.26);
 }
 
+.op-btn, .number-input:not(.dot-button){
+    border:1px solid rgba(0, 0, 0, 0);
+}
+.op-btn:hover, .number-input:not(.dot-button):hover{
+    border:1px solid rgba(0, 0, 0, 0.212);
+}
 
 /* HISTORY SECTION */
 .history-section {
@@ -146,4 +155,11 @@ body {
 .history-flex-heading {
     display: flex;
     justify-content: space-between;
+}
+
+
+@media only screen and (max-width: 400px){
+    .calculator-container{
+        width: 100%;
+    }
 }
